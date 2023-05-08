@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vida_leve/utils/appbar.dart';
+import 'package:vida_leve/pages/pacientes.dart';
 
 class Homepage extends StatelessWidget {
   @override
@@ -36,10 +37,11 @@ class Homepage extends StatelessWidget {
                         Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            color: Color.fromRGBO(0, 168, 150, 100)
+                            color: const Color.fromRGBO(0, 168, 150, 100)
                           ),
                           child: IconButton(
-                            icon: Icon(Icons.add),
+                            icon: const Icon(Icons.add),
+                            iconSize: 30,
                             color: Colors.white,
                             onPressed: () {
                               // Função a ser executada quando o ícone for clicado
@@ -126,7 +128,11 @@ class Homepage extends StatelessWidget {
                   const SizedBox(height: 60.0),
                   ElevatedButton(
                     onPressed: () {
-                      // Função a ser executada quando o botão for clicado
+                      print('pacientes');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Pacientes()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
