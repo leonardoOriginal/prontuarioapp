@@ -20,7 +20,11 @@ class Homepage extends StatelessWidget {
               color: Colors.white,
               child: Column(
                 children: [
-                  const SizedBox(height: 32.0), // Espaço entre o título e os cards
+                  const Flexible(
+                    flex: 1,
+                    child: SizedBox(height: 32.0),
+                  ),
+                  const SizedBox(height: 32.0),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
@@ -51,7 +55,7 @@ class Homepage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 32.0), // Espaço entre os cards e a margem inferior
+                  const SizedBox(height: 16.0), // Espaço entre os cards e a margem inferior
                   Container(
                     decoration: const BoxDecoration(
                       color: Colors.white,
@@ -66,7 +70,7 @@ class Homepage extends StatelessWidget {
                         height: 150.0,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
-                          itemCount: 4,
+                          itemCount: 5,
                           itemBuilder: (BuildContext context, int index) {
                             return Container(
                               width: 105.0, // diminui a largura do card
@@ -113,7 +117,7 @@ class Homepage extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              color: Colors.white,
+              //color: Colors.white,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -125,7 +129,7 @@ class Homepage extends StatelessWidget {
                       fontFamily: 'Montserrat',
                     ),
                   ),
-                  const SizedBox(height: 60.0),
+                  const SizedBox(height: 30.0),
                   ElevatedButton(
                     onPressed: () {
                       print('pacientes');

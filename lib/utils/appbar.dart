@@ -40,8 +40,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Image.asset(
           'images/logo_vidaleve.png',
           fit: BoxFit.scaleDown,
-          width: 140.0,
-          height: 140.0,
+          width: 70.0,
+          height: 70.0,
         ),
       ),
       ),

@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:vida_leve/utils/appbar.dart';
 
-class Pacientes extends StatelessWidget {
+class Pacientes extends StatefulWidget {
+  @override
+  _PacientesState createState() => _PacientesState();
+}
+
+
+class _PacientesState extends State<Pacientes> {
+  List<Map<String, dynamic>> dados = [
+    {'nome': 'Fulano', 'descricao': 'Descrição do Fulano', 'imagem': ' '},
+    {'nome': 'Ciclano', 'descricao': 'Descrição do Ciclano', 'imagem': ' '},
+    {'nome': 'Beltrano', 'descricao': 'Descrição do Beltrano', 'imagem': ' '},
+  ];
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +75,47 @@ class Pacientes extends StatelessWidget {
               ),
             ),
           ),
-          // resto do conteúdo da página
+          Expanded(
+            child: ListView.builder(
+              itemCount: dados.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: 64,
+                        height: 64,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(dados[index]['imagem']),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 16),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            dados[index]['nome'],
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            dados[index]['descricao'],
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
